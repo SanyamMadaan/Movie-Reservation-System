@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from 'axios';
 import { Balance } from "../Components/Balance";
 import { Appbar } from "../Components/Appbar";
 import { Userlist } from "../Components/Userlist";
@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 export function Dashboard() {
   const [balance, setBalance] = useState(0);
   const [error, setError] = useState(null);
-  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,23 +23,15 @@ export function Dashboard() {
         }
       });
       setBalance(response.data.balance);
-      setAccess(true);
     } catch (error) {
       setError(error.response?.data?.msg || "An error occurred while fetching balance.");
-      setAccess(false);
     }
   }
 
-  useEffect(() => {
-    if (!access) {
-      alert("You don't have access to the dashboard page. Redirecting you to the login page.");
-      navigate('/');
-    }
-  }, [access, navigate]);
 
   return (
     <>
-      {access ? (
+      {
         error ? (
           <h2 className="text-red-800">{error}</h2>
         ) : (
@@ -50,7 +41,7 @@ export function Dashboard() {
             <Userlist />
           </div>
         )
-      ) : null}
+      }
     </>
   );
 }
