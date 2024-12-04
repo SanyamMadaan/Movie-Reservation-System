@@ -1,5 +1,5 @@
 import { useState ,useEffect } from "react"
-import Navbar from "./Navbar";
+import Navbar from "./NAvbar";
 export default function MovieDisplay(){
     
     const [movies,setMovies]=useState([]);
