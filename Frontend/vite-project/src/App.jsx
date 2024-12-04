@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "./Components/NAvbar";
+import Navbar from "./Components/Navbar";
 import MovieDisplay from "./Components/MovieDisplay";
 import { Login } from "./Components/Login";
 import Welcome from "./Components/Welcome";
